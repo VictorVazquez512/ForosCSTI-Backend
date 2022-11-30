@@ -1,6 +1,9 @@
 from django.urls import path
 from rest_framework import routers
-from applications.engorda.catalogos.clasificacion.api.viewsets import ClasificacionViewSet
+from applications.foros.api.viewsets import ForosViewSet, ComentariosViewSet
 
-router_clasificacion = routers.DefaultRouter()
-router_clasificacion.register(prefix='clasificacion', basename='clasificacion', viewset=ClasificacionViewSet)
+router_foros = routers.DefaultRouter()
+router_foros.register(prefix='foro', basename='foro', viewset=ForosViewSet)
+
+router_comentarios = routers.DefaultRouter()
+router_comentarios.register(prefix='comentario', basename='comentario', viewset=ComentariosViewSet)

@@ -18,6 +18,7 @@ class UserSerializer(serializers.ModelSerializer):
         update_user.save()
         return update_user
 
+
 class UserListSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -31,40 +32,3 @@ class UserListSerializer(serializers.ModelSerializer):
             'email':instance['email'],
             'password':instance['password']
         }
-
-
-
-
-
-
-
-
-# class TestUserSerializer(serializers.Serializer):
-#     name = serializers.CharField(max_length = 200)
-#     email = serializers.EmailField()
-
-#     def validate_name(self, value):
-#         # custom validation
-#         if 'manuela' in value:
-#             raise serializers.ValidationError('Error, no puede existir un usuario con ese nombre')
-
-#         return value
-
-#     def validate_email(self, value):
-#         # custom validation
-#         if value == '':
-#             raise serializers.ValidationError('Tiene que indicar un correo')
-
-#         return value
-
-#     def validate(self, data):
-#         return data
-
-#     def create(self, validated_data):
-#         return User.objects.create(**validated_data)
-
-#     def update(self, instance, validated_data):
-#         instance.name = validated_data.get('name', instance.name)
-#         instance.email = validated_data.get('email', instance.email)
-#         instance.save()
-#         return instance

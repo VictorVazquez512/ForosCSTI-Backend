@@ -18,14 +18,8 @@ from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from applications.engorda.catalogos.almacenes.api.routers import router_almacenes
-from applications.engorda.catalogos.articulos.api.routers import router_articulos
-from applications.engorda.catalogos.clasificacion.api.routers import router_clasificacion
-from applications.engorda.catalogos.clientes.api.routers import router_clientes
-from applications.engorda.catalogos.empresas.api.routers import router_empresas
-from applications.engorda.catalogos.fincas.api.routers import router_fincas
-from applications.engorda.catalogos.proveedores.api.routers import router_proveedores
-from applications.engorda.catalogos.raza.api.routers import router_raza
+
+from applications.foros.api.routers import router_foros, router_comentarios
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -54,12 +48,6 @@ urlpatterns = [
     # path('api/', include('applications.engorda.catalogos.fincas.urls')),
     # path('api/', include('applications.engorda.catalogos.proveedores.urls')),
     # path('api/', include('applications.engorda.catalogos.raza.urls')),
-    path('api/', include(router_almacenes.urls)),
-    path('api/', include(router_articulos.urls)),
-    path('api/', include(router_clasificacion.urls)),
-    path('api/', include(router_clientes.urls)),
-    path('api/', include(router_empresas.urls)),
-    path('api/', include(router_fincas.urls)),
-    path('api/', include(router_proveedores.urls)),
-    path('api/', include(router_raza.urls)),
+    path('api/', include(router_foros.urls)),
+    path('api/', include(router_comentarios.urls)),
 ]
