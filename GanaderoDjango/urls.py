@@ -18,8 +18,12 @@ from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
 
 from applications.foros.api.routers import router_foros, router_comentarios
+from applications.users.api.routers import urlpatterns
+from applications.users.views import Login, Logout
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -36,9 +40,13 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/', include('applications.users.api.urls')),
+    path('users/', include(urlpatterns)),
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redocs/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('logout/', Logout.as_view(), name='logout'),
+    path('login/', Login.as_view(), name='login'),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     # API
     # path('api/', include('applications.engorda.catalogos.almacenes.urls')),
     # path('api/', include('applications.engorda.catalogos.articulos.urls')),

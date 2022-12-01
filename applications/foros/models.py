@@ -6,6 +6,7 @@ from applications.users.models import User
 class Foros(models.Model):
     titulo = models.CharField(max_length=40)
     descripcion = models.CharField(max_length=250, default="", blank=True, null=True)
+    creador = models.ForeignKey(User, on_delete=models.CASCADE, db_column="id_usuario", default=1)
 
     class Meta:
         db_table = 'foros'

@@ -3,7 +3,7 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, Permis
 
 
 class UserManager(BaseUserManager):
-    def _create_user(self, username, email):
+    def _create_user(self, username, email, **extra_fields):
         user = self.model(
             username = username,
             email = email,
@@ -24,6 +24,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length = 255, unique = True)
     email = models.EmailField('Correo Electrónico',max_length = 255, unique = True)
     admin = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    objects = UserManager()
 
     class Meta:
         verbose_name = 'Usuario'

@@ -7,11 +7,11 @@ class ForosViewSet(viewsets.ModelViewSet):
     queryset = Foros.objects.all()
     serializer_class = ForoSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['nombre', 'codigo', 'activo', 'clasificacion']
+    filterset_fields = ['titulo', 'descripcion']
 
 
 class ComentariosViewSet(viewsets.ModelViewSet):
     queryset = Comentarios.objects.all()
     serializer_class = ComentariosSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['nombre', 'codigo', 'activo', 'clasificacion']
+    filterset_fields = ['descripcion', 'foro']
