@@ -4,6 +4,6 @@ from .models import User
 # Register your models here.
 
 class UsuariosAdmin(admin.ModelAdmin):
-    list_display = ('id', 'username', 'name', 'last_name', 'is_active', 'is_staff')
+    list_display = ('id', 'username')
 
 admin.site.register(User, UsuariosAdmin)

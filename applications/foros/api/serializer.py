@@ -1,7 +1,12 @@
 from rest_framework import serializers
-from applications.engorda.catalogos.clasificacion.models import SubClasificacionArticulos
+from applications.foros.models import Foros, Comentarios
 
-class ClasificacionSerializer(serializers.ModelSerializer):
+class ForoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = SubClasificacionArticulos
+        model = Foros
+        fields = '__all__'
+
+class ComentariosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comentarios
         fields = '__all__'

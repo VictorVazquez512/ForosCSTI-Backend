@@ -20,18 +20,12 @@ BASE_APPS = [
 LOCAL_APPS = [
     'applications.base',
     'applications.users',
-    'applications.engorda.catalogos.almacenes',
-    'applications.engorda.catalogos.articulos',
-    'applications.engorda.catalogos.clasificacion',
-    'applications.engorda.catalogos.empresas',
-    'applications.engorda.catalogos.clientes',
-    'applications.engorda.catalogos.fincas',
-    'applications.engorda.catalogos.proveedores',
-    'applications.engorda.catalogos.raza',
+    'applications.foros',
 ]
 
 THIRD_APPS = [
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
     'simple_history',
     'django_filters',
