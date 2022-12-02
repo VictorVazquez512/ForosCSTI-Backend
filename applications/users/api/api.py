@@ -4,18 +4,15 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated
 
 from applications.users.models import User
-from applications.users.api.serializer import (
+from applications.users.api.serializers import (
     UserSerializer, UserListSerializer, UpdateUserSerializer,
     PasswordSerializer
 )
 
 class UserViewSet(viewsets.GenericViewSet):
     model = User
-    authentication_classes = []
-    permission_classes = []
     serializer_class = UserSerializer
     list_serializer_class = UserListSerializer
     queryset = None
@@ -27,7 +24,7 @@ class UserViewSet(viewsets.GenericViewSet):
         if self.queryset is None:
             self.queryset = self.model.objects\
                             .filter(is_active=True)\
-                            .values('id', 'username', 'email')
+                            .values('id', 'username', 'email', 'name')
         return self.queryset
 
     @action(detail=True, methods=['post'])

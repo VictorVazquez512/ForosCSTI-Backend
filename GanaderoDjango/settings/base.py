@@ -48,12 +48,12 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
-    'DEFAULT_AUTHETICATION_CLASSES':(
-        'rest_framework_simplejwt.authetication.JWTAuthetication'
-    ),
-    'DEFAULT_PERMISSION_CLASSES':(
-        'rest_framework.permissions.IsAuthenticated',
-    )
+    # 'DEFAULT_AUTHETICATION_CLASSES':(
+    #     'rest_framework_simplejwt.authetication.JWTAuthetication'
+    # ),
+    # 'DEFAULT_PERMISSION_CLASSES':(
+    #     'rest_framework.permissions.IsAuthenticated',
+    # )
 }
 
 ROOT_URLCONF = 'GanaderoDjango.urls'

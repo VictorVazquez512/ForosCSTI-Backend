@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 from rest_framework.authentication import get_authorization_header
 
-from applications.users.authentication import ExpiringTokenAuthentication
+from apps.users.authentication import ExpiringTokenAuthentication
 
 class Authentication(authentication.BaseAuthentication):
     user = None
@@ -37,3 +37,6 @@ class Authentication(authentication.BaseAuthentication):
             raise exceptions.AuthenticationFailed('No se han enviado las credenciales.')
 
         return (self.user, 1)
+
+
+    

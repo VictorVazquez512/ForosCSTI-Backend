@@ -50,3 +50,4 @@ class ExpiringTokenAuthentication(TokenAuthentication):
             pass
 
         return user
+
